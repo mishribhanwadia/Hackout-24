@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #5a10a9f7;
+            color: white;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #19066d;
+        }
+        h2 {
+            color: #19066d;
+        }
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .rating label {
+            font-size: 2em;
+            color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .rating input[type="radio"]:checked ~ label {
+            color: #FFD700;
+        }
+        .rating input[type="radio"] {
+            display: none;
+        }
+        .submit-button {
+            background-color: #4ca7af;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-button:hover {
+            background-color: #4ca7af;
+        }
+        .rating-result {
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rating Page</h1>
+    </header>
+
+    <div class="container">
+        <h2>Rate Our Service</h2>
+        <form id="ratingForm">
+            <div class="rating">
+                <input type="radio" id="star1" name="rating" value="5">
+                <label for="star1">&#9733;</label>
+                <input type="radio" id="star2" name="rating" value="4">
+                <label for="star2">&#9733;</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3">&#9733;</label>
+                <input type="radio" id="star4" name="rating" value="2">
+                <label for="star4">&#9733;</label>
+                <input type="radio" id="star5" name="rating" value="1">
+                <label for="star5">&#9733;</label>
+            </div>
+            <button type="button" class="submit-button" onclick="submitRating()">Submit Rating</button>
+        </form>
+        <div class="contact-details">
+            <h3>Contact Details</h3>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> <a href="mailto:soilabc@gmail.com">soilabc@gmail.com</a></p>
+            <p><strong>Address:</strong> 123 Green Street, Suite 456, Agritown, AG 12345</p>
+        </div>
+        <div class="rating-result" id="ratingResult"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function submitRating() {
+            const form = document.getElementById('ratingForm');
+            const rating = form.querySelector('input[name="rating"]:checked');
+            const resultDiv = document.getElementById('ratingResult');
+
+            if (rating) {
+                resultDiv.textContent = `Thank you for your rating of ${rating.value} star(s)!`;
+            } else {
+                resultDiv.textContent = 'Please select a rating before submitting.';
+            }
+        }
+    </script>
+</body>
+</html>
